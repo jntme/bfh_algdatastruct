@@ -1,10 +1,10 @@
 public class IntegerPrinting {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		printInteger(61, 2);
-		printIntegerCompact(61, 2);
+		//TODO: why is no higher number printed than 10??
+//		printInteger(61, 5);
+		printIntegerCompact(610, 15);
 	}
 
 	private static void printInteger(int n, int b) {
@@ -20,5 +20,4 @@ public class IntegerPrinting {
 			printIntegerCompact(n / b, b);
 		else System.out.println(n % b);
 	}
-
 }
