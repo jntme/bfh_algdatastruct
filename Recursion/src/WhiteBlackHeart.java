@@ -2,8 +2,6 @@ public class WhiteBlackHeart {
 
 	public static void main(String[] args) {
 
-		int field[][] = new int[11][11];
-
 		int heartField[][] = { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 				{ 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0 },
 				{ 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0 },
@@ -22,7 +20,7 @@ public class WhiteBlackHeart {
 		printField(heartField);
 	}
 
-	// e.g. floodFill(A, 3, 6, 11, 11)
+	// e.g. floodFill(A, 3, 6)
 	public static void floodFill(int a[][], int x, int y) {
 		if (a[x][y] == 0) {
 			a[x][y] = 1;
