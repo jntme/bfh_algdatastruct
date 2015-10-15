@@ -15,19 +15,21 @@ public class WhiteBlackHeart {
 				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 
 		printField(heartField);
-		floodFill(heartField, 3, 6);
+		floodFill(heartField, 1, 1, 11, 11);
 		System.out.println();
 		printField(heartField);
 	}
 
-	// e.g. floodFill(A, 3, 6)
-	public static void floodFill(int a[][], int x, int y) {
-		if (a[x][y] == 0) {
-			a[x][y] = 1;
-			floodFill(a, x - 1, y);
-			floodFill(a, x + 1, y);
-			floodFill(a, x, y + 1);
-			floodFill(a, x, y - 1);
+	// e.g. floodFill(A, 3, 6, 11, 11)
+	public static void floodFill(int a[][], int x, int y, int n, int m) {
+		if (x >= 0 && x < n && y >= 0 && y < m) {
+			if (a[x][y] == 0) {
+				a[x][y] = 1;
+				floodFill(a, x - 1, y, n, m);
+				floodFill(a, x + 1, y, n, m);
+				floodFill(a, x, y + 1, n, m);
+				floodFill(a, x, y - 1, n, m);
+			}
 		}
 	}
 
@@ -47,5 +49,4 @@ public class WhiteBlackHeart {
 			System.out.print("\n");
 		}
 	}
-
 }
