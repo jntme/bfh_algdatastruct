@@ -9,6 +9,7 @@ public class ArrayIntegerStack {
 	//number of elements in array
 	int n = 0;
 
+	// runs in O(1) time
 	public void push(int e) {
 		if(n < N) {
 			A[n] = e;
@@ -19,6 +20,7 @@ public class ArrayIntegerStack {
 		}
 	}
 	
+	// runs in O(1) time
 	public int pop() {
 		if(n>0) {
 			n--;
@@ -29,6 +31,7 @@ public class ArrayIntegerStack {
 		}
 	}
 	
+	// runs in O(1) time
 	public int top() {
 		if(n > 0) {
 			return A[n-1];
@@ -38,10 +41,12 @@ public class ArrayIntegerStack {
 		}
 	}
 	
+	// runs in O(1) time
 	public int size() {
 		return this.n;
 	}
 	
+	// runs in O(1) time
 	public boolean isEmpty() {
 		return n == 0;
 	}
