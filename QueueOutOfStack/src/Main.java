@@ -20,7 +20,7 @@ public class Main {
 		// System.out.println(stringQueue.dequeue());
 		
 		System.out.println(stringQueue.isEmpty());
-
+		
 	}
 
 }
