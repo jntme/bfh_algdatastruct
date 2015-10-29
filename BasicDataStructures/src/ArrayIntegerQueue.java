@@ -1,6 +1,7 @@
 import java.util.EmptyStackException;
 
 //TODO fragen: wie array von generic?
+//TODO test!
 public class ArrayIntegerQueue {
 
 	private final int N = 9;
