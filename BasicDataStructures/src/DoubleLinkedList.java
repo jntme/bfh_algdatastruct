@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 
 public class DoubleLinkedList<T> {
 
@@ -40,6 +41,12 @@ public class DoubleLinkedList<T> {
 			r.prev = q;
 		}
 
+		LinkedList<String> list = new LinkedList<>();
+		list.add("hallo");
+		
+		list.indexOf(8);
+
+		
 		n++;
 		return q;
 	}
