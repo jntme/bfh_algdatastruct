@@ -7,14 +7,18 @@ import topic4.interfaces.Position;
 
 public class TreeNode<E> implements Position<E> {
 
-	private ArrayList<TreeNode<E>> children;
+	private final LinkedTree<E> assignedTree;
+
+	private ArrayList<Position<E>> children;
+
 	private E element;
 
-	public TreeNode(E element) {
+	public TreeNode(E element, LinkedTree<E> assignedTree) {
 		this.element = element;
+		this.assignedTree = assignedTree;
 	}
 	
-	public List<TreeNode<E>> getChildren() {
+	public List<Position<E>> getChildren() {
 		return this.children;
 	}
 	
@@ -24,6 +28,15 @@ public class TreeNode<E> implements Position<E> {
 	
 	public void addChildren(List<TreeNode<E>> nodes) {
 		this.children.addAll(nodes);
+	}
+	
+	/**
+	 * Returns true, if the given tree is the assigned tree.
+	 * 
+	 * @param tree
+	 */
+	public boolean isAssignedToTree(LinkedTree<E> tree) {
+		return tree == assignedTree;
 	}
 
 	@Override

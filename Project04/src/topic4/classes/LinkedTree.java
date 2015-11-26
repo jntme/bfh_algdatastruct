@@ -9,26 +9,19 @@ import topic4.interfaces.Position;
 import topic4.interfaces.Tree;
 
 public class LinkedTree<E> implements Tree<E>{
+	
+	private int size = 0;
+
+	private Position<E> root;
 
 	@Override
 	public int size() {
-		if(isEmpty()) return 0;
-		else return sizeOf(root());
-	}
-	
-	private int sizeOf(Position<E> node) {
-		int result = 0;
-		
-		for (Position<E> child : children(node)) {
-		}
-
-		return 0;
+		return this.size;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return size <= 0;
 	}
 
 	@Override
@@ -39,7 +32,7 @@ public class LinkedTree<E> implements Tree<E>{
 
 	@Override
 	public List<E> elements() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -51,20 +44,19 @@ public class LinkedTree<E> implements Tree<E>{
 
 	@Override
 	public Position<E> root() throws EmptyTreeException {
-		// TODO Auto-generated method stub
-		return null;
+		return this.root;
 	}
 
 	@Override
 	public Position<E> parent(Position<E> p) throws InvalidPositionException {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public List<Position<E>> children(Position<E> p) throws InvalidPositionException {
 		TreeNode<E> node = (TreeNode<E>) p;
-		// TODO BUT HOW??
+		
 		return node.getChildren();
 	}
 
