@@ -12,7 +12,16 @@ public class LinkedTree<E> implements Tree<E>{
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
+		if(isEmpty()) return 0;
+		else return sizeOf(root());
+	}
+	
+	private int sizeOf(Position<E> node) {
+		int result = 0;
+		
+		for (Position<E> child : children(node)) {
+		}
+
 		return 0;
 	}
 
@@ -54,8 +63,9 @@ public class LinkedTree<E> implements Tree<E>{
 
 	@Override
 	public List<Position<E>> children(Position<E> p) throws InvalidPositionException {
-		// TODO Auto-generated method stub
-		return null;
+		TreeNode<E> node = (TreeNode<E>) p;
+		// TODO BUT HOW??
+		return node.getChildren();
 	}
 
 	@Override
