@@ -8,26 +8,39 @@ import topic4.interfaces.Position;
 public class TreeNode<E> implements Position<E> {
 
 	private final LinkedTree<E> assignedTree;
+	
+	private final TreeNode<E> parent;
 
 	private ArrayList<Position<E>> children;
 
 	private E element;
 
-	public TreeNode(E element, LinkedTree<E> assignedTree) {
+	public TreeNode(E element, TreeNode<E> parent, LinkedTree<E> assignedTree) {
 		this.element = element;
 		this.assignedTree = assignedTree;
+		this.parent = parent;
+		
+		this.children = new ArrayList<>();
 	}
 	
+	public TreeNode<E> getParent() {
+		return parent;
+	}
+
 	public List<Position<E>> getChildren() {
-		return this.children;
+		return children;
+	}
+	
+	public boolean hasChildren() {
+		return children.size() > 0;
 	}
 	
 	public void addChild(TreeNode<E> node) {
-		this.children.add(node);
+		children.add(node);
 	}
 	
 	public void addChildren(List<TreeNode<E>> nodes) {
-		this.children.addAll(nodes);
+		children.addAll(nodes);
 	}
 	
 	/**
@@ -43,5 +56,4 @@ public class TreeNode<E> implements Position<E> {
 	public E element() {
 		return this.element;
 	}
-
 }

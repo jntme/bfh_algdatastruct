@@ -1,0 +1,53 @@
+PROJECT 7: Streams
+
+Consider the given Java interface Stream<E>. Note that Stream<E> inherits from the Java interface Iterable<E>, which means that the method Iterator<E> iterator() is inherited. 
+
+a) Write an abstract class LazyStream<E>, which implements all the methods of the Stream<E> interface except Iterator<E> iterator(). "Lazy" means that the elements of the stream are not stored explicitly, they are computed only when a terminal operation (see below) is called.
+
+There are two types of methods:
+
+1. "Terminal Operations": matchAll, matchAny, countAll, countAny, get, find, reduce, toList
+Their return type is not a stream. They can all be implemented by iterating through all the elements of the stream, using its iterator.
+
+2. "Intermediate Operations": limit, skip, filter, map
+Their return value is another stream. They can all be implemented by returning an element of an anonymous class which inherits from LazyStream. Here is a template:
+
+@Override
+public Stream<E> intermediateOperation(...) {
+	:
+	:
+	return new LazyStream<E>() {
+	
+		@Override
+		public Iterator<E> iterator() {
+			:
+			:
+		}
+	};
+}
+
+Note that the return type of map(Mapping<? super E, ? extends F> mapping) is a stream of a different type F. 
+
+b) Write a class ArrayStream<E>, which inherits from LazyStream<E>. Its purpose is to construct a stream from an array, which is called "source" of the stream. Write a constructor
+
+	public ArrayStream(E... array)
+
+and the method Iterator<E> iterator().
+
+c) Write a class SeededStream<E>, which inherits from LazyStream<E>. Its purpose is to construct a stream from a given initial element e (the "seed") and an update operation u, i.e. the elements of the stream are
+	e, u(e), u(u(e)), u(u(u(e))), ...
+There are two types of such streams. The first type has an infinite number of elements, whereas the second type contains only elements satisfying a given condition (as soon as an element not satisfying the condition is generated, the stream ends). Write corresponding constructors
+
+	public SeededStream(E seed, Mapping<E, E> update)
+	public SeededStream(E seed, Mapping<E, E> update, Predicate<E> condition)
+
+and the method Iterator<E> iterator().
+
+d) Write one or several example programs as a first test.
+
+Test your implementation with JUnit. Corresponding JUnit test classes are given. Your solution needs to pass all the tests.
+
+Document your classes and the given interfaces with JavaDoc.
+
+DEADLINE: January 17th
+
